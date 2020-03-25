@@ -44,18 +44,12 @@
                             <td style="width=10px;">
                             
                                 <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-info"><i class="far fa-eye"></i></a>
-                                <a href="{{ route('plans.edit', $plan->url) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>  
+                                
+                                <a href="{{ route('plans.edit', $plan->url) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>                                  
 
-                                {!! Form::open(['method' => 'DELETE','route' => ['plans.destroy', $plan->id],'style'=>'display:inline']) !!}
-                                                                                                                         
-                                    {!! 
-                                        Form::button('<i class="fas fa-trash-alt"></i>', [
-                                        'class' => 'btn btn-danger','data-toggle'=>'confirmation','data-placement'=>'left', 'data-singleton'=>'true',
-                                        'data-title'=>'Deseja Realmente Excluir?',
-                                        'data-btn-cancel-label'=>'Não', 'data-btn-ok-label'=>'Sim' ]) 
-                                    !!}
-                                                                            
-                                {!! Form::close() !!}
+                                <button type="button" class="btn btn-danger" id="btnModalDeletePlan" data-toggle="modal" data-target="#ModalDeletePlan" onclick="setHiddenPlanExcluir({{ $plan->id }})">
+                                    <i class="fas fa-trash-alt"></i>    
+                                </button>
 
                                 <a href="{{ route('plans.profiles', $plan->id) }}" class="btn btn-warning"><i class="far fa-address-card"></i></a>
 
@@ -65,6 +59,29 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- Modal HTML Markup -->
+        <div class="modal fade" id="ModalDeletePlan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Deseja Realmente Excluir o Registro?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" class="form-control" id="idPlanExcluir" name="idPlanExcluir" value="">
+                    Lembre-se: Uma vez excluído, não poderá ser restaurado!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                    <button type="button" class="btn btn-primary" onClick="excluirPlan()">Sim</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
         <div class="card-footer">
             @if (isset($filters))
                 {!! $plans->appends($filters)->links() !!}

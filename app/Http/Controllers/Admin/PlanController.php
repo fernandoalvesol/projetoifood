@@ -18,7 +18,9 @@ class PlanController extends Controller
 
     public function index()
     {
-        $plans = $this->repository->latest()->paginate();
+        $plans = $this->repository
+                       ->where('flag_situacao', 0) 
+                       ->latest()->paginate();
         
         //dd($plans);
 
@@ -36,7 +38,7 @@ class PlanController extends Controller
     {
         $this->repository->create($request->all());
 
-        return redirect()->route('plans.index');
+        return redirect()->route('plans.index')->with('info', 'Registro Incluído com Sucesso!');
     }
 
     public function show($url)
@@ -51,25 +53,25 @@ class PlanController extends Controller
         ]);
     }
 
-    public function destroy($url)
-    {
+    public function destroy($id)
+    {                    
+        
         $plan = $this->repository
                         ->with('details')
-                        ->where('url', $url)
-                        ->first();
+                        ->where('id', $id)
+                        ->first();                        
 
         if (!$plan)
-            return redirect()->back();
+            return 1; //registro nao encontrado
 
         if ($plan->details->count() > 0) {
-            return redirect()
-                        ->back()
-                        ->with('error', 'Existem detahes vinculados a esse plano, portanto não pode deletar');
-        }
+            return 2; //Existem detalhes vinculados a esse plano, portanto não pode deletar
+        }        
+        
+        //exclusao logica do registro
+        $plan->update(['flag_situacao' => 1]);
 
-        $plan->delete();
-
-        return redirect()->route('plans.index');
+        return 0; //0 = ok!
     }
     
 
@@ -91,7 +93,7 @@ class PlanController extends Controller
         $plan = $this->repository->where('url', $url)->first();
 
         if (!$plan)
-            return redirect()->back();
+            return redirect()->back()->with('info', 'Registro não Encontrado!');
 
         return view('admin.pages.plans.edit', [
             'plan' => $plan
@@ -103,10 +105,10 @@ class PlanController extends Controller
         $plan = $this->repository->where('url', $url)->first();
 
         if (!$plan)
-            return redirect()->back();
+            return redirect()->back()->with('info', 'Registro não Encontrado!');
 
         $plan->update($request->all());
 
-        return redirect()->route('plans.index');
+        return redirect()->route('plans.index')->with('info', 'Registro Editado com Sucesso!');
     }
 }

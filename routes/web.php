@@ -67,10 +67,11 @@ Route::prefix('admin')
     Route::put('plans/{url}', 'PlanController@update')->name('plans.update');
     Route::get('plans/{url}/edit', 'PlanController@edit')->name('plans.edit');
     Route::any('plans/search', 'PlanController@search')->name('plans.search');
-    Route::delete('plans/{url}', 'PlanController@destroy')->name('plans.destroy');
+    Route::any('deletarPlan/{url}', 'PlanController@destroy');
     Route::get('plans/{url}', 'PlanController@show')->name('plans.show');
     Route::post('plans', 'PlanController@store')->name('plans.store');
     Route::get('plans', 'PlanController@index')->name('plans.index');
+    
 
     /**
      * Home Dashboard

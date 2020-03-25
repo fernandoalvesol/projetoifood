@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Plan extends Model
 {
-    protected $fillable = ['name', 'url', 'price', 'description'];
+    protected $fillable = ['name', 'url', 'price', 'description', 'flag_situacao'];
 
 
     public function details()
