@@ -9,9 +9,11 @@
         <li class="breadcrumb-item active"><a href="{{ route('plans.profiles', $plan->id) }}" class="active">Perfis</a></li>
     </ol>
 
-    <h1>Perfis do plano <strong>{{ $plan->name }}</strong></h1>
+    <h1>Perfis do plano <strong>{{ $plan->name }}</strong></h1>    
 
-    <a href="{{ route('plans.profiles.available', $plan->id) }}" class="btn btn-dark">ADD NOVO PERFIL</a>
+    <div class="pull-left">
+        <a class="btn btn-success" href="{{ route('plans.profiles.available', $plan->id) }}"> <i class="fas fa-plus-square"></i> </a>
+    </div>
 
 @stop
 
