@@ -1,0 +1,24 @@
+a:hover {
+    text-decoration: none;
+}
+
+
+/*Stilos Particulares*/
+
+
+
+.title-del{font-size: 12px;font-weight: bold;text-align: center;}
+
+.alert-del{
+    text-align: center;
+    font-size: 93px;
+    color: #e20a0a;
+    margin-left: 76px;
+}
+
+.text-del{margin-left: 75px;font-size: 19px;font-weight: bold;}
+
+.text-seg{
+    text-align: center;
+    font-size: 19px;
+}
