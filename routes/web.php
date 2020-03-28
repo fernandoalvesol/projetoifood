@@ -10,6 +10,7 @@ Route::prefix('admin')
      */
     Route::any('categories/search', 'CategoryController@search')->name('categories.search');
     Route::resource('categories', 'CategoryController');
+    Route::any('deletarCategoria/{url}', 'CategoryController@destroy');
 
 
     /**

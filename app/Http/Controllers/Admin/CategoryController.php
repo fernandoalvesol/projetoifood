@@ -23,7 +23,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = $this->repository->latest()->paginate();
+        $categories = $this->repository
+                           ->where('flag_situacao', 0)
+                           ->latest()->paginate();
 
         return view('admin.pages.categories.index', compact('categories'));
     }
@@ -47,8 +49,8 @@ class CategoryController extends Controller
     public function store(StoreUpdateCategory $request)
     {
         $this->repository->create($request->all());
-
-        return redirect()->route('categories.index');
+        
+        return redirect()->route('categories.index')->with('message', 'Registro Incluído com Sucesso!');
     }
 
     /**
@@ -93,12 +95,12 @@ class CategoryController extends Controller
     public function update(StoreUpdateCategory $request, $id)
     {
         if (!$category = $this->repository->find($id)) {
-            return redirect()->back();
+            return redirect()->route('categories.index')->with('error', 'Registro não Encontrado!');
         }
 
         $category->update($request->all());
 
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('message', 'Registro Editado com Sucesso!');
     }
 
     /**
@@ -109,13 +111,17 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        if (!$category = $this->repository->find($id)) {
-            return redirect()->back();
+
+        $category = $this->repository->find($id);
+
+        if (!$category) {
+            return 1; //registro nao encontrado
         }
 
-        $category->delete();
+        //exclusao logica do registro
+        $category->update(['flag_situacao' => 1]);
 
-        return redirect()->route('categories.index');
+        return 0; //0 = ok!
     }
 
 

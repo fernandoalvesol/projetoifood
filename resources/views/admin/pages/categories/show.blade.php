@@ -19,15 +19,13 @@
                 <li>
                     <strong>Descrição: </strong> {{ $category->description }}
                 </li>
-            </ul>
-
-            @include('admin.includes.alerts')
-
-            <form action="{{ route('categories.destroy', $category->id) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> DELETAR A CATEGORIA {{ $category->name }}</button>
-            </form>
+            </ul>            
+        
+            <div class="form-group">
+                <div class="pull-left">
+                    <a class="btn btn-success" href="{{ route('categories.index') }}"><i class="fas fa-arrow-circle-left"></i></a>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

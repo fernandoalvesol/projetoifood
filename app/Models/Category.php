@@ -9,5 +9,5 @@ class Category extends Model
 {
     use TenantTrait;
 
-    protected $fillable = ['name', 'url', 'description'];
+    protected $fillable = ['name', 'url', 'description', 'flag_situacao'];
 }

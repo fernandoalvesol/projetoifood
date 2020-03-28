@@ -81,7 +81,7 @@
                 </div>
                 </div>
             </div>
-            </div>
+        </div>
 
         <div class="card-footer">
             @if (isset($filters))
