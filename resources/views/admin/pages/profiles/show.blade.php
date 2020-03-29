@@ -24,8 +24,13 @@
         <form action="{{ route('profiles.destroy', $profile->id) }}" method="POST">
             @csrf
             @method('DELETE')
+<<<<<<< HEAD
             
             <a class="btn btn-success" href="{{ route('profiles.index') }}"><i class="fas fa-arrow-circle-left"></i></a>
+=======
+            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+            <a class="btn btn-success" href="{{ route('plans.index') }}"><i class="fas fa-arrow-circle-left"></i></a>
+>>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
         </form>
     </div>
 </div>

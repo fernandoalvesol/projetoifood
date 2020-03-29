@@ -50,7 +50,11 @@
                             <td colspan="500">
                                 @include('admin.includes.alerts')
 
+<<<<<<< HEAD
                                 <button type="submit" class="btn btn-success"><i class="fas fa-lock"></i></button>
+=======
+                                <button type="submit" class="btn btn-success">Vincular</button>
+>>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
                             </td>
                         </tr>
                     </form>

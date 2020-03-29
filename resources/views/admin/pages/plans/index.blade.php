@@ -8,11 +8,22 @@
         <li class="breadcrumb-item active"><a href="{{ route('plans.index') }}" class="active">Planos</a></li>
     </ol>
     
+<<<<<<< HEAD
 <h1>Gestão dos Planos <a class="btn btn-success" href="{{ route('plans.create') }}"><i class="fas fa-plus-square"></i></a></h1>
     
 @stop
 
 @section('content')
+=======
+    <h1>Planos</h1>    
+    <div class="pull-left">
+        <a class="btn btn-success" href="{{ route('plans.create') }}"> <i class="fas fa-plus-square"></i> </a>
+    </div>
+@stop
+
+@section('content')
+    @include('admin.includes.alerts')
+>>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
     <div class="card">
         <div class="card-header">
             <form action="{{ route('plans.search') }}" method="POST" class="form form-inline">
@@ -41,6 +52,7 @@
                             </td>
                             <td style="width=10px;">
                             
+<<<<<<< HEAD
                                 <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-info" title="Exibir"><i class="far fa-eye"></i></a>
                                 
                                 <a href="{{ route('plans.edit', $plan->url) }}" class="btn btn-primary" title="Editar"><i class="fas fa-edit"></i></a>                                  
@@ -50,6 +62,17 @@
                                 </button>
 
                                 <a href="{{ route('plans.profiles', $plan->id) }}" class="btn btn-warning" title="Exibir Perfil"><i class="far fa-address-card"></i></a>
+=======
+                                <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-info"><i class="far fa-eye"></i></a>
+                                
+                                <a href="{{ route('plans.edit', $plan->url) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>                                  
+
+                                <button type="button" class="btn btn-danger" id="btnModalDeletePlan" data-toggle="modal" data-target="#ModalDeletePlan" onclick="setHiddenPlanExcluir({{ $plan->id }})">
+                                    <i class="fas fa-trash-alt"></i>    
+                                </button>
+
+                                <a href="{{ route('plans.profiles', $plan->id) }}" class="btn btn-warning"><i class="far fa-address-card"></i></a>
+>>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
 
                             </td>
                         </tr>
@@ -62,16 +85,25 @@
         <div class="modal fade" id="ModalDeletePlan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
+<<<<<<< HEAD
                 <div class="modal-header title-del">
                     <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-exclamation-triangle alert-del"></i>
                         <p class="text-del">Deseja Realmente Excluir o Registro?</p></h5>
+=======
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Deseja Realmente Excluir o Registro?</h5>
+>>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" class="form-control" id="idPlanExcluir" name="idPlanExcluir" value="">
+<<<<<<< HEAD
                     <p class="text-seg">Lembre-se: Uma vez excluído, não poderá ser restaurado!</p>
+=======
+                    Lembre-se: Uma vez excluído, não poderá ser restaurado!
+>>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
@@ -79,7 +111,11 @@
                 </div>
                 </div>
             </div>
+<<<<<<< HEAD
             </div>
+=======
+        </div>
+>>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
 
         <div class="card-footer">
             @if (isset($filters))

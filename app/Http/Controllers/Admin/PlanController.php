@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdatePlan;
 use App\Models\Plan;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
+=======
+use Alert;
+>>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
 
 class PlanController extends Controller
 {
@@ -17,13 +21,21 @@ class PlanController extends Controller
     }
 
     public function index()
+<<<<<<< HEAD
     {
+=======
+    {        
+
+>>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
         $plans = $this->repository
                        ->where('flag_situacao', 0) 
                        ->latest()->paginate();
         
+<<<<<<< HEAD
         //dd($plans);
 
+=======
+>>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
         return view('admin.pages.plans.index', [
             'plans' => $plans,
         ]);
@@ -38,7 +50,11 @@ class PlanController extends Controller
     {
         $this->repository->create($request->all());
 
+<<<<<<< HEAD
         return redirect()->route('plans.index')->with('info', 'Registro Incluído com Sucesso!');
+=======
+        return redirect()->route('plans.index')->with('message', 'Registro Incluído com Sucesso!');
+>>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
     }
 
     public function show($url)
@@ -93,7 +109,11 @@ class PlanController extends Controller
         $plan = $this->repository->where('url', $url)->first();
 
         if (!$plan)
+<<<<<<< HEAD
             return redirect()->back()->with('info', 'Registro não Encontrado!');
+=======
+            return redirect()->back()->with('error', 'Registro não Encontrado!');
+>>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
 
         return view('admin.pages.plans.edit', [
             'plan' => $plan
@@ -104,11 +124,21 @@ class PlanController extends Controller
     {
         $plan = $this->repository->where('url', $url)->first();
 
+<<<<<<< HEAD
         if (!$plan)
             return redirect()->back()->with('info', 'Registro não Encontrado!');
 
         $plan->update($request->all());
 
         return redirect()->route('plans.index')->with('info', 'Registro Editado com Sucesso!');
+=======
+        if (!$plan){
+            return redirect()->route('plans.index')->with('error', 'Registro não Encontrado!');            
+        }            
+
+        $plan->update($request->all());
+                        
+        return redirect()->route('plans.index')->with('message', 'Registro Editado com Sucesso!');
+>>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
     }
 }

@@ -36,7 +36,11 @@
                     @endforeach
                 </tbody>
             </table>
+<<<<<<< HEAD
             <a class="btn btn-success" href="{{ route('profiles.index') }}"><i class="fas fa-arrow-circle-left"></i></a>
+=======
+            <a class="btn btn-success" href="{{ route('plans.index') }}"><i class="fas fa-arrow-circle-left"></i></a>
+>>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
         </div>
         <div class="card-footer">
             @if (isset($filters))
