@@ -7,13 +7,6 @@
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
         <li class="breadcrumb-item active"><a href="{{ route('categories.index') }}" class="active">Categorias</a></li>
     </ol>
-<<<<<<< HEAD
-
-    <h1>Categorias <a href="{{ route('categories.create') }}" class="btn btn-dark">ADD</a></h1>
-@stop
-
-@section('content')
-=======
     
     <h1>Categorias</h1>    
     <div class="pull-left">
@@ -23,18 +16,12 @@
 
 @section('content')
 @include('admin.includes.alerts')
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
     <div class="card">
         <div class="card-header">
             <form action="{{ route('categories.search') }}" method="POST" class="form form-inline">
                 @csrf
-<<<<<<< HEAD
-                <input type="text" name="filter" placeholder="Filtrar:" class="form-control" value="{{ $filters['filter'] ?? '' }}">
-                <button type="submit" class="btn btn-dark">Filtrar</button>
-=======
                 <input type="text" name="filter" placeholder="Filtrar:" class="form-control" value="{{ $filters['filter'] ?? '' }}">                
                 <button type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
             </form>
         </div>
         <div class="card-body">
@@ -43,23 +30,13 @@
                     <tr>
                         <th>Nome</th>
                         <th>Descrição</th>
-<<<<<<< HEAD
-                        <th width="150">Ações</th>
-=======
                         <th width="200">Ações</th>
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($categories as $category)
                         <tr>
                             <td>{{ $category->name }}</td>
-<<<<<<< HEAD
-                            <td>{{ $category->description }}</td>
-                            <td style="width=10px;">
-                                <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('categories.show', $category->id) }}" class="btn btn-warning">VER</a>
-=======
                             <td>{{ $category->description }}</td>                            
                             <td style="width=10px;">
                             
@@ -71,15 +48,12 @@
                                     <i class="fas fa-trash-alt"></i>    
                                 </button>                                
 
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-<<<<<<< HEAD
-=======
 
         <!-- Modal HTML Markup -->
         <div class="modal fade" id="ModalDeleteCategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -103,7 +77,6 @@
             </div>
         </div>
 
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
         <div class="card-footer">
             @if (isset($filters))
                 {!! $categories->appends($filters)->links() !!}

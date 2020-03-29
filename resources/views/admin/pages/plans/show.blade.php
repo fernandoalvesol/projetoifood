@@ -26,13 +26,7 @@
             <div class="pull-left">
                 <a class="btn btn-success" href="{{ route('plans.index') }}"><i class="fas fa-arrow-circle-left"></i></a>
             </div>
-<<<<<<< HEAD
-        </div>
-        
-        @include('admin.includes.alerts')
-=======
         </div>            
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
 
     </div>
 </div>

@@ -4,12 +4,6 @@ $.ajaxSetup({
     }
 })
 
-<<<<<<< HEAD
-
-/**Excluir Planos**/
-
-=======
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
 function setHiddenPlanExcluir(id){
             
     $('#idPlanExcluir').val(id);     
@@ -32,18 +26,7 @@ function excluirPlan(){
                 
                 $("#ModalDeletePlan").modal('hide');
                 $('body').removeClass('modal-open');
-<<<<<<< HEAD
-                $('.modal-backdrop').remove();
-
-                /* Swal.fire({
-                    title: 'Registro Excluído com Sucesso!',
-                    text: '',
-                    icon: 'success',
-                    confirmButtonText: 'Ok!'
-                  }) */
-=======
                 $('.modal-backdrop').remove();               
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
 
                   let timerInterval;
 
@@ -92,27 +75,6 @@ function excluirPlan(){
    
 }
 
-<<<<<<< HEAD
-
-/**Excluir Perfis**/
-
-function setHiddenProfileExcluir(id){
-            
-    $('#idProfileExcluir').val(id);     
-   
-}
-
-
-function excluirProfile(){
-     
-    var idProfileExcluir = $('#idProfileExcluir').val(); 
-
-    if(idProfileExcluir != ""){        
-
-        $.ajax({
-            type: 'post',
-            url: 'deletarProfile/'+idProfileExcluir,
-=======
 function setHiddenCategoriaExcluir(id){   
             
     $('#idCategoriaExcluir').val(id);     
@@ -128,28 +90,14 @@ function excluirCategoria(){
         $.ajax({
             type: 'post',
             url: 'deletarCategoria/'+idCategoriaExcluir,
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
             data: {
                 '_token' : $('input[name=_token]').val()
             },
             success: function(s){
                 
-<<<<<<< HEAD
-                $("#ModalDeleteProfile").modal('hide');
-                $('body').removeClass('modal-open');
-                $('.modal-backdrop').remove();
-
-                /* Swal.fire({
-                    title: 'Registro Excluído com Sucesso!',
-                    text: '',
-                    icon: 'success',
-                    confirmButtonText: 'Ok!'
-                  }) */
-=======
                 $("#ModalDeleteCategoria").modal('hide');
                 $('body').removeClass('modal-open');
                 $('.modal-backdrop').remove();               
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
 
                   let timerInterval;
 
@@ -187,11 +135,7 @@ function excluirCategoria(){
     } else {
 
         Swal.fire({
-<<<<<<< HEAD
-            title: 'Falhou ao tentar Excluir o Perfil!',
-=======
             title: 'Falhou ao tentar Excluir a Categoria!',
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
             text: 'Tente novamente em instantes.',
             icon: 'error',
             confirmButtonText: 'Ok!'

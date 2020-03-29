@@ -23,13 +23,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-        $categories = $this->repository->latest()->paginate();
-=======
         $categories = $this->repository
                            ->where('flag_situacao', 0)
                            ->latest()->paginate();
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
 
         return view('admin.pages.categories.index', compact('categories'));
     }
@@ -53,13 +49,8 @@ class CategoryController extends Controller
     public function store(StoreUpdateCategory $request)
     {
         $this->repository->create($request->all());
-<<<<<<< HEAD
-
-        return redirect()->route('categories.index');
-=======
         
         return redirect()->route('categories.index')->with('message', 'Registro Incluído com Sucesso!');
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
     }
 
     /**
@@ -104,20 +95,12 @@ class CategoryController extends Controller
     public function update(StoreUpdateCategory $request, $id)
     {
         if (!$category = $this->repository->find($id)) {
-<<<<<<< HEAD
-            return redirect()->back();
-=======
             return redirect()->route('categories.index')->with('error', 'Registro não Encontrado!');
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
         }
 
         $category->update($request->all());
 
-<<<<<<< HEAD
-        return redirect()->route('categories.index');
-=======
         return redirect()->route('categories.index')->with('message', 'Registro Editado com Sucesso!');
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
     }
 
     /**
@@ -128,15 +111,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-<<<<<<< HEAD
-        if (!$category = $this->repository->find($id)) {
-            return redirect()->back();
-        }
-
-        $category->delete();
-
-        return redirect()->route('categories.index');
-=======
 
         $category = $this->repository->find($id);
 
@@ -148,7 +122,6 @@ class CategoryController extends Controller
         $category->update(['flag_situacao' => 1]);
 
         return 0; //0 = ok!
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
     }
 
 

@@ -10,10 +10,7 @@ Route::prefix('admin')
      */
     Route::any('categories/search', 'CategoryController@search')->name('categories.search');
     Route::resource('categories', 'CategoryController');
-<<<<<<< HEAD
-=======
     Route::any('deletarCategoria/{url}', 'CategoryController@destroy');
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
 
 
     /**
@@ -51,10 +48,6 @@ Route::prefix('admin')
      */
     Route::any('profiles/search', 'ACL\ProfileController@search')->name('profiles.search');
     Route::resource('profiles', 'ACL\ProfileController');
-<<<<<<< HEAD
-    Route::any('deletarProfile/{id}', 'ACL\ProfileController@destroy');
-=======
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
 
     /**
      * Routes Details Plans
