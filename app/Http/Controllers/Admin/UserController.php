@@ -54,7 +54,7 @@ class UserController extends Controller
 
         $this->repository->create($data);
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('message', 'Registro Incluído com Sucesso!');
     }
 
     /**
@@ -97,7 +97,7 @@ class UserController extends Controller
     public function update(StoreUpdateUser $request, $id)
     {
         if (!$user = $this->repository->tenantUser()->find($id)) {
-            return redirect()->back();
+            return redirect()->route('users.index')->with('error', 'Registro não Encontrado!'); 
         }
 
         $data = $request->only(['name', 'email']);
@@ -108,7 +108,7 @@ class UserController extends Controller
 
         $user->update($data);
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('message', 'Registro Editado com Sucesso!');
     }
 
     /**
