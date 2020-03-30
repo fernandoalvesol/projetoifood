@@ -13,5 +13,6 @@
     <input type="password" name="password" class="form-control" placeholder="Senha:">
 </div>
 <div class="form-group">
-    <button type="submit" class="btn btn-dark">Enviar</button>
+    <button type="submit" class="btn btn-dark"><i class="far fa-share-square"></i></button>
+    <a class="btn btn-success" href="{{ route('users.index') }}"><i class="fas fa-arrow-circle-left"></i></a>
 </div>

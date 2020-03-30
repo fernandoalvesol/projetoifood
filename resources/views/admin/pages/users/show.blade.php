@@ -20,14 +20,11 @@
                     <strong>Empresa: </strong> {{ $user->tenant->name }}
                 </li>
             </ul>
-
-            @include('admin.includes.alerts')
-
-            <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> DELETAR O USUÁRIO {{ $user->name }}</button>
-            </form>
+            <div class="form-group">
+            <div class="pull-left">
+                <a class="btn btn-success" href="{{ route('users.index') }}"><i class="fas fa-arrow-circle-left"></i></a>
+            </div>
+        </div>
         </div>
     </div>
 @endsection
