@@ -10,12 +10,7 @@
 
     <h1>Permissões do perfil <strong>{{ $profile->name }}</strong></h1>
 
-<<<<<<< HEAD
     <a href="{{ route('profiles.permissions.available', $profile->id) }}" class="btn btn-dark"><i class="fas fa-plus-square"></i></a>
-=======
-    <a href="{{ route('profiles.permissions.available', $profile->id) }}" class="btn btn-dark">ADD NOVA PERMISSÃO</a>
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
-
 @stop
 
 @section('content')
@@ -41,11 +36,8 @@
                     @endforeach
                 </tbody>
             </table>
-<<<<<<< HEAD
+
             <a class="btn btn-success" href="{{ route('profiles.index') }}"><i class="fas fa-arrow-circle-left"></i></a>
-=======
-            <a class="btn btn-success" href="{{ route('plans.index') }}"><i class="fas fa-arrow-circle-left"></i></a>
->>>>>>> 0564cfe9d62a2e2944b035da20b7865548376e17
         </div>
         <div class="card-footer">
             @if (isset($filters))

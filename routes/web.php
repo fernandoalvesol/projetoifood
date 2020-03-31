@@ -48,6 +48,7 @@ Route::prefix('admin')
      */
     Route::any('profiles/search', 'ACL\ProfileController@search')->name('profiles.search');
     Route::resource('profiles', 'ACL\ProfileController');
+    Route::any('deletarProfile/{id}', 'ACL\ProfileController@destroy');
 
     /**
      * Routes Details Plans
