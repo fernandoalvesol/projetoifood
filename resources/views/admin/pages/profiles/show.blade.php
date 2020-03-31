@@ -21,11 +21,10 @@
 
         @include('admin.includes.alerts')
 
-        <form action="{{ route('profiles.destroy', $profile->id) }}" method="POST">
+        <form action="#" method="POST">
             @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-            <a class="btn btn-success" href="{{ route('plans.index') }}"><i class="fas fa-arrow-circle-left"></i></a>
+            
+            <a class="btn btn-success" href="{{ route('profiles.index') }}"><i class="fas fa-arrow-circle-left"></i></a>
         </form>
     </div>
 </div>
