@@ -219,12 +219,6 @@ function excluirProfile(){
         })
 
     }
-<<<<<<< HEAD
-
-
-}
-
-=======
          
    
 }
@@ -372,4 +366,3 @@ function excluirPermissao(){
          
    
 }
->>>>>>> c8474ca7d4e2ac1a7ae57d0fea84c3f2b32527b0
