@@ -23,7 +23,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->repository->latest()->tenantUser()->paginate();
+        $users = $this->repository
+                ->where('flag_situacao', 0)
+                ->latest()->tenantUser()->paginate();
 
         return view('admin.pages.users.index', compact('users'));
     }
@@ -52,7 +54,7 @@ class UserController extends Controller
 
         $this->repository->create($data);
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('message', 'Registro Incluído com Sucesso!');
     }
 
     /**
@@ -95,7 +97,7 @@ class UserController extends Controller
     public function update(StoreUpdateUser $request, $id)
     {
         if (!$user = $this->repository->tenantUser()->find($id)) {
-            return redirect()->back();
+            return redirect()->route('users.index')->with('error', 'Registro não Encontrado!'); 
         }
 
         $data = $request->only(['name', 'email']);
@@ -106,7 +108,7 @@ class UserController extends Controller
 
         $user->update($data);
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('message', 'Registro Editado com Sucesso!');
     }
 
     /**
@@ -117,13 +119,23 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        if (!$user = $this->repository->tenantUser()->find($id)) {
+        /* if (!$user = $this->repository->tenantUser()->find($id)) {
             return redirect()->back();
         }
 
         $user->delete();
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index'); */
+
+        $user = $this->repository->tenantUser()->find($id);                          
+
+        if (!$user)
+            return 1; //registro nao encontrado
+                       
+        //exclusao logica do registro
+        $user->update(['flag_situacao' => 1]);
+
+        return 0; //0 = ok!
     }
 
     /**

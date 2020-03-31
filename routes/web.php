@@ -18,6 +18,7 @@ Route::prefix('admin')
      */
     Route::any('users/search', 'UserController@search')->name('users.search');
     Route::resource('users', 'UserController');
+    Route::any('deletarUsuario/{url}', 'UserController@destroy');
 
     /**
      * Plan x Profile

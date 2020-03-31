@@ -6,16 +6,15 @@
 </div>
 <div class="row">
     @foreach ($plans as $plan)
-        <div class="col-md-4 col-sm-6">
+        <div class="col-md-6 col-sm-6 col-xs-12"> 
             <div class="pricingTable">
                 <div class="pricing-content">
                     <div class="pricingTable-header">
                         <h3 class="title">{{ $plan->name }}</h3>
                     </div>
                     <div class="inner-content">
-                        <div class="price-value">
-                            <span class="currency">R$</span>
-                            <span class="amount">{{ number_format($plan->price, 2, ',', '.') }}</span>
+                        <div class="price-value">                            
+                            <span class="amount">R$ {{ number_format($plan->price, 2, ',', '.') }}</span>
                             <span class="duration">Por Mês</span>
                         </div>
                         <ul>
