@@ -8,7 +8,10 @@
     <li class="breadcrumb-item active"><a href="{{ route('profiles.index') }}" class="active">Gestão de Perfis</a></li>
 </ol>
 
-<h1>Gestão de Perfis <a href="{{ route('profiles.create') }}" class="btn btn-success"><i class="fas fa-plus-square"></i></a></h1>
+<h1>Gestão de Perfis</h1> 
+<a href="{{ route('profiles.create') }}" class="btn btn-success"><i class="fas fa-plus-square"></i></a>
+
+
 @stop
 
 @section('content')
@@ -24,8 +27,8 @@
         <table class="table table-condensed">
             <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th width="270">Ações</th>
+                    <th width="80%">Nome</th>
+                    <th width="20%">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,9 +37,10 @@
                     <td>
                         {{ $profile->name }}
                     </td>
-                    <td style="width=10px;">
-                        <a href="{{ route('profiles.edit', $profile->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                        <a href="{{ route('profiles.show', $profile->id) }}" class="btn btn-info"><i class="far fa-eye"></i></a>
+                    <td>
+
+                        <a href="{{ route('profiles.show', $profile->id) }}" class="btn btn-info"><i class="fas fa-info-circle"></i></a>
+                        <a href="{{ route('profiles.edit', $profile->id) }}" class="btn btn-primary"><i class="fas fa-wrench"></i></a>
 
                         <button type="button" class="btn btn-danger" id="btnModalDeleteProfile" data-toggle="modal" data-target="#ModalDeleteProfile" onclick="setHiddenProfileExcluir({{ $profile->id }})"><i class="fas fa-trash-alt"></i>    
                         </button>

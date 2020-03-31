@@ -8,7 +8,8 @@
     <li class="breadcrumb-item active"><a href="{{ route('plans.index') }}" class="active">Gestão de Planos</a></li>
 </ol>
 
-<h1>Gestão de Planos <a class="btn btn-success" href="{{ route('plans.create') }}"> <i class="fas fa-plus-square"></i> </a></h1>    
+<h1>Gestão de Planos</h1> 
+<a class="btn btn-success" href="{{ route('plans.create') }}"> <i class="fas fa-plus-square"></i> </a>   
 
     
 
@@ -28,9 +29,9 @@
         <table class="table table-condensed">
             <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>Preço</th>
-                    <th width="270">Ações</th>
+                    <th width="60%">Nome</th>
+                    <th width="25%">Preço</th>
+                    <th width="15%">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,16 +43,16 @@
                     <td>
                         R$ {{ number_format($plan->price, 2, ',', '.') }}
                     </td>
-                    <td style="width=10px;">
+                    <td>
 
-                        <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-info"><i class="far fa-eye"></i></a>
+                        <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-info"><i class="fas fa-info-circle"></i></a>                        
 
-                        <a href="{{ route('plans.edit', $plan->url) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>                                  
+                        <a href="{{ route('plans.edit', $plan->url) }}" class="btn btn-primary"><i class="fas fa-wrench"></i></a>                                                        
 
                         <button type="button" class="btn btn-danger" id="btnModalDeletePlan" data-toggle="modal" data-target="#ModalDeletePlan" onclick="setHiddenPlanExcluir({{ $plan->id }})"><i class="fas fa-trash-alt"></i>    
                         </button>
 
-                        <a href="{{ route('plans.profiles', $plan->id) }}" class="btn btn-warning"><i class="far fa-address-card"></i></a>
+                        <a href="{{ route('plans.profiles', $plan->id) }}" class="btn btn-warning"><i class="fas fa-cog"></i></a>                        
 
                     </td>
                 </tr>

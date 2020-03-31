@@ -28,8 +28,8 @@
             <table class="table table-condensed">
                 <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th width="250">Ações</th>
+                        <th width="80%">Nome</th>
+                        <th width="20%">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,17 +38,17 @@
                             <td>
                                 {{ $permission->name }}
                             </td>
-                            <td style="width=10px;">                                
+                            <td>                                
 
-                                <a href="{{ route('permissions.show', $permission->id) }}" class="btn btn-info"><i class="far fa-eye"></i></a>
+                                <a href="{{ route('permissions.show', $permission->id) }}" class="btn btn-info"><i class="fas fa-info-circle"></i></a>
                                 
-                                <a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                <a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-primary"><i class="fas fa-wrench"></i></a>
 
                                 <button type="button" class="btn btn-danger" id="btnModalDeletePermissao" data-toggle="modal" data-target="#ModalDeletePermissao" onclick="setHiddenPermissaoExcluir({{ $permission->id }})">
                                     <i class="fas fa-trash-alt"></i>    
                                 </button>
 
-                                <a href="{{ route('permissions.profiles', $permission->id) }}" class="btn btn-warning"><i class="far fa-address-card"></i></a>                                
+                                <a href="{{ route('permissions.profiles', $permission->id) }}" class="btn btn-warning"><i class="fas fa-cog"></i></a>                                
                             </td>
                         </tr>
                     @endforeach

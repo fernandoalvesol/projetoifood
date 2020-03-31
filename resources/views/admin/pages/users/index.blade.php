@@ -29,9 +29,9 @@
             <table class="table table-condensed">
                 <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>E-mail</th>
-                        <th width="270">Ações</th>
+                        <th width="40%">Nome</th>
+                        <th width="40%">E-mail</th>
+                        <th width="20%">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,10 +39,10 @@
                         <tr>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
-                            <td style="width=10px;">
-                                <a href="{{ route('users.show', $user->id) }}" class="btn btn-info"><i class="far fa-eye"></i></a>
+                            <td>
+                                <a href="{{ route('users.show', $user->id) }}" class="btn btn-info"><i class="fas fa-info-circle"></i></a>
                                 
-                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary"><i class="fas fa-wrench"></i></a>
 
                                 <button type="button" class="btn btn-danger" id="btnModalDeleteUsuario" data-toggle="modal" data-target="#ModalDeleteUsuario" onclick="setHiddenUsuarioExcluir({{ $user->id }})">
                                     <i class="fas fa-trash-alt"></i>    

@@ -8,7 +8,9 @@
     <li class="breadcrumb-item active"><a href="{{ route('categories.index') }}" class="active">Gestão de Categorias</a></li>
 </ol>
 
-<h1>Gestão de Categorias <a class="btn btn-success" href="{{ route('categories.create') }}"> <i class="fas fa-plus-square"></i> </a></h1>
+<h1>Gestão de Categorias</h1> 
+<a class="btn btn-success" href="{{ route('categories.create') }}"> <i class="fas fa-plus-square"></i> </a>
+
 
 @stop
 
@@ -26,9 +28,9 @@
         <table class="table table-condensed">
             <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th width="200">Ações</th>
+                    <th width="40%">Nome</th>
+                    <th width="40%">Descrição</th>
+                    <th width="20%">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,11 +38,11 @@
                 <tr>
                     <td>{{ $category->name }}</td>
                     <td>{{ $category->description }}</td>                            
-                    <td style="width=10px;">
+                    <td>
 
-                        <a href="{{ route('categories.show', $category->id) }}" class="btn btn-info"><i class="far fa-eye"></i></a>
+                        <a href="{{ route('categories.show', $category->id) }}" class="btn btn-info"><i class="fas fa-info-circle"></i></a>
 
-                        <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>                                  
+                        <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary"><i class="fas fa-wrench"></i></a>                                  
 
                         <button type="button" class="btn btn-danger" id="btnModalDeleteCategoria" data-toggle="modal" data-target="#ModalDeleteCategoria" onclick="setHiddenCategoriaExcluir({{ $category->id }})">
                             <i class="fas fa-trash-alt"></i>    
