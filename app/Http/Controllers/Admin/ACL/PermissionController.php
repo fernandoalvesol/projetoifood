@@ -23,7 +23,9 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        $permissions = $this->repository->paginate();
+        $permissions = $this->repository
+                            ->where('flag_situacao', 0)
+                            ->paginate();
 
         return view('admin.pages.permissions.index', compact('permissions'));
     }
@@ -106,11 +108,9 @@ class PermissionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {       
-
-        dd();
+    {               
         
-        /* $permission = $this->repository->find($id);                         
+        $permission = $this->repository->find($id);             
 
         if (!$permission)
             return 1; //registro nao encontrado
@@ -118,7 +118,7 @@ class PermissionController extends Controller
         //exclusao logica do registro
         $permission->update(['flag_situacao' => 1]);
 
-        return 0; //0 = ok! */
+        return 0; //0 = ok!
 
     }
 

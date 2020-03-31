@@ -314,7 +314,7 @@ function excluirPermissao(){
             },
             success: function(s){  
                 
-                console.log('opa');
+                //console.log(s);
                 
                 $("#ModalDeletePermissao").modal('hide');
                 $('body').removeClass('modal-open');
@@ -343,9 +343,8 @@ function excluirPermissao(){
                         clearInterval(timerInterval)
                     }
                     }).then((result) => {
-                        /* Read more about handling dismissals below */
-                        if (result.dismiss === Swal.DismissReason.timer) {
-                            //console.log('I was closed by the timer')
+                        
+                        if (result.dismiss === Swal.DismissReason.timer) {                            
                             location.reload();
                         }
                     })
