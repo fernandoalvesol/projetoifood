@@ -118,14 +118,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        /* if (!$user = $this->repository->tenantUser()->find($id)) {
-            return redirect()->back();
-        }
-
-        $user->delete();
-
-        return redirect()->route('users.index'); */
+    {        
 
         $user = $this->repository->tenantUser()->find($id);                          
 

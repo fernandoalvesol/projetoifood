@@ -48,7 +48,7 @@ class PermissionController extends Controller
     {
         $this->repository->create($request->all());
 
-        return redirect()->route('permissions.index');
+        return redirect()->route('permissions.index')->with('message', 'Registro Incluído com Sucesso!');
     }
 
     /**
@@ -91,12 +91,12 @@ class PermissionController extends Controller
     public function update(StoreUpdatePermission $request, $id)
     {
         if (!$permission = $this->repository->find($id)) {
-            return redirect()->back();
+            return redirect()->route('permissions.index')->with('error', 'Registro não Encontrado!');
         }
 
         $permission->update($request->all());
 
-        return redirect()->route('permissions.index');
+        return redirect()->route('permissions.index')->with('message', 'Registro Editado com Sucesso!');
     }
 
     /**
@@ -106,14 +106,20 @@ class PermissionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        if (!$permission = $this->repository->find($id)) {
-            return redirect()->back();
-        }
+    {       
 
-        $permission->delete();
+        dd();
+        
+        /* $permission = $this->repository->find($id);                         
 
-        return redirect()->route('permissions.index');
+        if (!$permission)
+            return 1; //registro nao encontrado
+                       
+        //exclusao logica do registro
+        $permission->update(['flag_situacao' => 1]);
+
+        return 0; //0 = ok! */
+
     }
 
     /**

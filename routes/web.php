@@ -43,6 +43,7 @@ Route::prefix('admin')
      */
     Route::any('permissions/search', 'ACL\PermissionController@search')->name('permissions.search');
     Route::resource('permissions', 'ACL\PermissionController');
+    Route::any('deletarPermissao/{url}', 'PermissionController@destroy');
 
     /**
      * Routes Profiles

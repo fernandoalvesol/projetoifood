@@ -18,13 +18,11 @@
                 </li>
             </ul>
 
-            @include('admin.includes.alerts')
-
-            <form action="{{ route('permissions.destroy', $permission->id) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> DELETAR O PERFIL: {{ $permission->name }}</button>
-            </form>
+            <div class="form-group">
+            <div class="pull-left">
+                <a class="btn btn-success" href="{{ route('permissions.index') }}"><i class="fas fa-arrow-circle-left"></i></a>
+            </div>
+        </div>
         </div>
     </div>
 @endsection
