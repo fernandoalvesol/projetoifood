@@ -59,14 +59,14 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Deseja Realmente Excluir o Registro?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-exclamation-triangle icone-modal"></i><p class="text-modal">Deseja Realmente Excluir o Registro?</p></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" class="form-control" id="idUsuarioExcluir" name="idUsuarioExcluir" value="">
-                    Lembre-se: Uma vez excluído, não poderá ser restaurado!
+                    <p class="text-modal-seg">Lembre-se: Uma vez excluído, não poderá ser restaurado!</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
